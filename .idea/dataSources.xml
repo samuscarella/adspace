@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1642023559">
+    <data-source source="LOCAL" name="Rails upvote: development" uuid="ba90ff7a-985c-4664-904c-35f34bb2c55a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:upvote_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails upvote: test" uuid="c72422fe-3779-44c9-827d-c1cde6e511ec">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:upvote_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails upvote: production" uuid="4d9bd280-6503-429d-819d-a6b0bf74f464">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:upvote_production</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails upvote: development" uuid="ba90ff7a-985c-4664-904c-35f34bb2c55a">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails upvote: test" uuid="c72422fe-3779-44c9-827d-c1cde6e511ec">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails upvote: production" uuid="4d9bd280-6503-429d-819d-a6b0bf74f464">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
