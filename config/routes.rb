@@ -3,7 +3,20 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'users#new'
+
+  get 'login', to: 'users#new', as: 'login'
+  get 'logout' => 'sessions#destroy', as: 'logout'
+  post 'authenticate' => 'sessions#create', as: 'authenticate'
+
+  # prevent get request leading to non existing page after failed login
+  get 'authenticate' => 'users#new'
+  get 'users' => 'users#new'
+
+  resources :users
+  resources :posts
+  resources :sessions
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

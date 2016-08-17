@@ -1,3 +1,95 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #484D6D !important;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+
+}
+body,
+html { height: 100%;}
+
+// Navbar Top Css
+.navbar-container {
+  padding: 0 !important;
+
+}
+.navbar-brand {
+  color: white !important;
+}
+.brand-logo {
+  height: 36px;
+  width: 36px;
+  position: absolute;
+    bottom: 9px;
+    right: 136px;
+}
+.navbar-custom {
+  background-color: #191D32 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+// Login Form
+.login-form-container {
+  margin-top: 150px;
+}
+.form-input {
+  padding-left: 54px !important;
+}
+#username-icon-login {
+ position: absolute;
+  bottom: 194px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+
+#password-icon-login {
+  position: absolute;
+  bottom: 145px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+#username-icon-register {
+  position: absolute;
+  bottom: 222px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+#email-icon-register {
+   position: absolute;
+   bottom: 171px;
+   left: 27px;
+   width: 24px;
+   height: 24px;
+}
+#password-icon-register {
+  position: absolute;
+  bottom: 120px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+#password-confirmation-icon-register {
+  position: absolute;
+  bottom: 70px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+.error {
+  color: Crimson;
+}
+.flash-login-error {
+  color: Crimson;
+  text-align: center;
+  margin-bottom: 6px;
+}
+

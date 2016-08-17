@@ -1,0 +1,128 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#title-icon-post{
+  position: absolute;
+  bottom: 536px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+#url-icon-post {
+  position: absolute;
+  bottom: 462px;
+  left: 27px;
+  width: 24px;
+  height: 24px;
+}
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+  color: black;
+}
+#submit-icon-post {
+  position: absolute;
+  bottom: 9px;
+  left: 81px;
+  width: 18px;
+  height: 18px;
+}
+.new-post-btn {
+}
+#new-post-cont {
+  text-align: center;
+}
+.new-post-icon {
+  width: 12px;
+  height: 12px;
+  position: relative;
+    bottom: 1px;
+}
+.modal-title {
+  text-align: center;
+}
+#canvas-preview {
+  height: 270px;
+  width: 75%;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  margin: 0 auto 12px auto;
+}
+.site-preview-header {
+  font-size: 1.2em;
+  text-align: center;
+}
+.post-col {
+  //background-color: gold;
+  //height: 320px;
+}
+.post-row {
+  //background-color: #E0DFD5;
+  padding: 9px 0;
+  margin: 27px 0;
+}
+.post-cont {
+  //background-color: blue;
+  margin: 18px 0;
+  padding: 0;
+}
+.post-main-cont {
+  background-color: #fff;
+  //background-color: #FAFAFF;
+  border-radius: 3px;
+  height: 100%;
+}
+.post-main-row {
+  //background-color: orange;
+}
+.post-main-col {
+  margin-top: 6px;
+  //background-color: purple;
+  padding: 0 6px !important;
+}
+.post-preview {
+  height: 220px;
+  width: 100%;
+  border: solid black 1px;
+  //background-color: white;
+}
+.title-row {
+  //background-color: red;
+}
+.title-col {
+  //background-color: gold;
+  padding: 0 9px !important;
+  text-align: center;
+}
+.post-short-title {
+  font-size: 1.2em;
+}
+.stat-row {
+  //background-color: cyan;
+}
+.stat-col {
+  //background-color: burlywood;
+}
+.like-dislike-icons {
+  height: 27px;
+  width: 27px;
+  display: block;
+  margin: auto;
+}
+.like-amount {
+  text-align: center;
+  margin: 0;
+  //color: green;
+}
+.dislike-amount {
+  text-align: center;
+  margin: 0;
+  //color: Crimson;
+}
+.category-cont {
+  //background-color: blue;
+}
+.category-row {
+}
+.category-col {
+  //background-color: orange;
+}
