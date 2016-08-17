@@ -1,0 +1,219 @@
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- JQuery -->
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container-fluid navbar-container">
+  <!-- Second navbar for search -->
+    <nav class="navbar navbar-inverse navbar-custom">
+      <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <%= image_tag('milky-way.svg', :alt => 'Universe', :class => 'brand-logo') %> Universal Blog
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+           <% if current_user %>
+                <li><a>Welcome, <%= current_user.username %>!</a></li>
+                  <li><%= link_to 'Logout', logout_path %></li>
+           <% else %>
+             <li><a href="#">Home</a></li>
+             <li><%= link_to 'Login', login_path, class: 'btn myButton' %></li>
+           <% end %>
+         </ul>
+       </div><!-- /.navbar-collapse -->
+     </div><!-- /.container -->
+   </nav><!-- /.navbar -->
+  </div>
+
+
+
+  <div id="wrapper">
+    <div class="overlay"></div>
+
+   <!-- Sidebar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+     <ul class="nav sidebar-nav">
+       <li class="sidebar-brand">
+         <a href="#">
+           <%= current_user.username %>
+         </a>
+       </li>
+       <li>
+         <a href="#">Home</a>
+       </li>
+       <li>
+         <a href="#">New Post</a>
+       </li>
+       <li>
+         <a href="#">Events</a>
+       </li>
+       <li>
+         <a href="#">Team</a>
+       </li>
+        <li>
+          <a href="#">Works</a>
+        </li>
+        <li>
+         <a href="#">Services</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/maridlcrmn">Follow me</a>
+        </li>
+     </ul>
+   </nav>
+  <!-- /#sidebar-wrapper -->
+
+
+  <div id="page-content-wrapper">
+    <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="container-fluid category-cont">
+            <div class="row category-row">
+              <div class="col-md-12 category-col">
+                <div id="new-post-cont">
+                  <a href="#" class="btn btn-login" data-toggle="modal" data-target="#myModal" style="color:white">
+                    <%= image_tag('add.svg', :alt => 'New Post', :class => 'new-post-icon') %> New Post
+                  </a>
+                </div>
+                <!--<div class="container-fluid post-cont">-->
+                  <!--<% @posts.in_groups_of(4, false).each do |posts| %>-->
+                    <!--<div class="row post-row">-->
+                      <!--<% for post in posts %>-->
+                      <!--<div class="col-md-3 post-col">-->
+                        <!--<div class="container-fluid post-main-cont">-->
+                          <!--<div class="row post-main-row">-->
+                            <!--<div class="col-md-12 post-main-col">-->
+                              <!--<a href="<%= post.url %>">-->
+                                <!--<%= image_tag(post.url_image, :alt => 'Site Preview', :class => 'post-preview') %>-->
+                              <!--</a>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="row title-row">-->
+                            <!--<div class="col-md-12 title-col">-->
+                              <!--<h5 class="post-short-title"><%= post.title %></h5>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="row stat-row">-->
+                            <!--<div class="col-md-3 stat-col">-->
+                              <!--<a href="#">-->
+                                <!--<%= image_tag('like.svg', :alt => 'Site Preview', :class => 'like-dislike-icons') %>-->
+                              <!--</a>-->
+                              <!--<p class="like-amount">200</p>-->
+                            <!--</div>-->
+                            <!--<div class="col-md-6 stat-col">-->
+
+                            <!--</div>-->
+                            <!--<div class="col-md-3 stat-col">-->
+                              <!--<a href="#">-->
+                                <!--<%= image_tag('dislike.svg', :alt => 'Site Preview', :class => 'like-dislike-icons') %>-->
+                              <!--</a>-->
+                              <!--<p class="dislike-amount">100</p>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                       <!--</div>-->
+                      <!--<% end %>-->
+                    <!--</div>-->
+                  <!--<% end %>-->
+                <!--</div>-->
+                </div>
+              </div>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">New Post</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <%= form_for Post.new, :html => {role: 'form'} do |f| %>
+
+                      <div class="form-group">
+                        <%= f.label :title %>:
+                        <%= image_tag('title.svg', :alt => 'title', :id => 'title-icon-post') %>
+                        <%= f.text_field(:title, class: 'form-control form-input', placeholder: 'Title', value: '') %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :url %>:
+                        <%= image_tag('link.svg', :alt => 'link', :id => 'url-icon-post') %>
+                        <%= f.text_field(:url, class: 'form-control form-input', placeholder: 'URL') %>
+                      </div>
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h5 class="site-preview-header">Site Preview</h5>
+                            <div id="canvas-preview">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :category %>:
+                        <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => true}, {:class => 'form-control form-input'}) %>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-6 col-sm-offset-3">
+                            <%= image_tag('create.svg', :alt => 'create', :id => 'submit-icon-post') %>
+                            <%= submit_tag('Create Post', class: 'form-control btn btn-danger', value: 'Create Post') %>
+                          </div>
+                        </div>
+                      </div>
+
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+</html>

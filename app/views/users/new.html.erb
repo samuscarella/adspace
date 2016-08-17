@@ -1,0 +1,129 @@
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- JQuery -->
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container-fluid navbar-container">
+    <!-- Second navbar for search -->
+    <nav class="navbar navbar-inverse navbar-custom">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <%= image_tag('milky-way.svg', :alt => 'Universe', :class => 'brand-logo') %> Universal Blog
+          </a>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><%= link_to 'Login', login_path, class: 'btn myButton' %></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+  </div>
+  <div class="container login-form-container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="#" class="active" id="login-form-link">Login</a>
+              </div>
+              <div class="col-xs-6">
+                <a href="#" id="register-form-link">Register</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <%= form_tag authenticate_path, id: 'login-form' do %>
+                    <% if flash[:login_error] %>
+                        <p class="flash-login-error"><%= flash[:login_error] %></p>
+                    <% end %>
+                  <div class="form-group">
+                    <%= image_tag('user.svg', :alt => 'user', :id => 'username-icon-login') %>
+                    <%= text_field(:session, :username, class: 'form-control form-input', tabindex: '1', placeholder: 'Username', value: '') %>
+                  </div>
+                  <div class="form-group">
+                    <%= image_tag('locked.svg', :alt => 'locked', :id => 'password-icon-login') %>
+                    <%= password_field(:session, :password, class: 'form-control form-input', tabindex: '2', placeholder: 'Password') %>
+                  </div>
+                  <div class="form-group text-center">
+                    <%= check_box(:session, :remember, class: '', tabindex: '3') %>
+                    <label for="remember"> Remember Me</label>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <%= submit_tag('Login', name: 'login-submit', id: 'login-submit', class: 'form-control btn btn-login', tabindex: '4', value: 'Login') %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="text-center">
+                          <%= link_to 'Forgot Password?', '#', tabindex: '5', class: 'forgot-password' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <%= form_for @user, :html => {id: 'register-form', role: 'form', style: 'display:none;'} do |f| %>
+                    <% if @user.errors.full_messages.any? %>
+                        <% @user.errors.full_messages.each do |message| %>
+                            <p class="error"><%= message if @user.errors.full_messages.first == message %></p>
+                        <% end %>
+                    <% end %>
+                  <div class="form-group">
+                    <%= image_tag('user.svg', :alt => 'Username', :id => 'username-icon-register') %>
+                    <%= f.text_field(:username, tabindex: '1', class: 'form-control form-input', id: 'username', placeholder: 'Username', value: '') %>
+                  </div>
+                  <div class="form-group">
+                    <%= image_tag('email.svg', :alt => 'Email', :id => 'email-icon-register') %>
+                    <%= f.email_field(:email, tabindex: '1', class: 'form-control form-input', id: 'email', placeholder: 'Email Address', value: '') %>
+                  </div>
+                  <div class="form-group">
+                    <%= image_tag('locked.svg', :alt => 'Password', :id => 'password-icon-register') %>
+                    <%= f.password_field(:password, tabindex: '2', class: 'form-control form-input', id: 'password', placeholder: 'Password') %>
+                  </div>
+                  <div class="form-group">
+                    <%= image_tag('locked_white.svg', :alt => 'Password Confirmation', :id => 'password-confirmation-icon-register') %>
+                    <%= f.password_field(:password_confirmation, tabindex: '2', class: 'form-control form-input', id: 'password', placeholder: 'Password Confirmation') %>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <%= submit_tag('Create Account', name: 'register-submit', id: 'register-submit', class: 'form-control btn btn-register', tabindex: '4', value: 'Create Account') %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
